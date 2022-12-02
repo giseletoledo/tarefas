@@ -4,14 +4,9 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -43,12 +38,17 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class Task extends StatelessWidget {
+class Task extends StatefulWidget {
 
   final String name;
 
   const Task({Key? key, required this.name}) : super(key: key);
 
+  @override
+  State<Task> createState() => _TaskState();
+}
+
+class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
     int nivel = 0;
@@ -75,7 +75,7 @@ class Task extends StatelessWidget {
                       ),
                       Container(
                           width: 200,
-                          child: Text(name, style: TextStyle(
+                          child: Text(widget.name, style: TextStyle(
                             fontSize: 24,
                             overflow: TextOverflow.ellipsis,
                           ),)),
