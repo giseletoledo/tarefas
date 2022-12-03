@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
             children: const [
               Task(
                   name: 'Aprender Flutter',
-                  foto: 'https://pbs.twimg.com/media/Eu7e3mQVgAImK2o?format=png&name=large'),
-              Task(name: 'Andar de bike', foto: 'https://3.bp.blogspot.com/-GXGnY7nIpM0/Wd0HYrIJuEI/AAAAAAAAA3E/afmo9jI9H3UwAb9CzjkT4Qt4PHPYOJtUwCLcBGAs/s1600/canstockphoto6512833.jpg'),
-              Task(name: 'Meditar', foto: 'https://catracalivre.com.br/wp-content/uploads/sites/19/2017/05/Medita%C3%A7%C3%A3o-iStock.jpg'),
-              Task(name: 'Ler', foto:'https://www.plannetaeducacao.com.br/portal/arquivo/thumb/artigos/eff9a21305e73bb387a7_990x600_0_0_1_1.png'),
-              Task(name: 'Jogar', foto:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Tyae_jwwSB9KLE5AKOX7Kl0A5eLN52-Yuw&usqp=CAU'),
+                  foto: 'https://pbs.twimg.com/media/Eu7e3mQVgAImK2o?format=png&name=large', dificuldade: 3,),
+              Task(name: 'Andar de bike', foto: 'https://3.bp.blogspot.com/-GXGnY7nIpM0/Wd0HYrIJuEI/AAAAAAAAA3E/afmo9jI9H3UwAb9CzjkT4Qt4PHPYOJtUwCLcBGAs/s1600/canstockphoto6512833.jpg', dificuldade: 1,),
+              Task(name: 'Meditar', foto: 'https://catracalivre.com.br/wp-content/uploads/sites/19/2017/05/Medita%C3%A7%C3%A3o-iStock.jpg', dificuldade: 2,),
+              Task(name: 'Ler', foto:'https://www.plannetaeducacao.com.br/portal/arquivo/thumb/artigos/eff9a21305e73bb387a7_990x600_0_0_1_1.png', dificuldade: 4,),
+              Task(name: 'Jogar', foto:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Tyae_jwwSB9KLE5AKOX7Kl0A5eLN52-Yuw&usqp=CAU', dificuldade: 1,),
             ],
           ),
           floatingActionButton: FloatingActionButton(
@@ -41,8 +41,9 @@ class MyApp extends StatelessWidget {
 class Task extends StatefulWidget {
   final String name;
   final String foto;
+  final int dificuldade;
 
-  const Task({Key? key, required this.name, required this.foto})
+  const Task({Key? key, required this.name, required this.foto, required this.dificuldade})
       : super(key: key);
 
   @override
@@ -95,11 +96,11 @@ class _TaskState extends State<Task> {
                               )),
                           Row(
                             children: [
-                              Icon(Icons.star, size: 15, color: Colors.blue, ),
-                              Icon(Icons.star,size: 15, color: Colors.blue,),
-                              Icon(Icons.star,size: 15, color: Colors.blue,),
-                              Icon(Icons.star,size: 15, color: Colors.blue[100],),
-                              Icon(Icons.star,size: 15, color: Colors.blue[100],),
+                              Icon(Icons.star, size: 15, color: (widget.dificuldade >= 1) ? Colors.blue: Colors.blue[100] , ),
+                              Icon(Icons.star,size: 15, color: (widget.dificuldade >= 2) ? Colors.blue: Colors.blue[100],),
+                              Icon(Icons.star,size: 15, color: (widget.dificuldade >= 3) ? Colors.blue: Colors.blue[100],),
+                              Icon(Icons.star,size: 15, color: (widget.dificuldade >= 4) ? Colors.blue: Colors.blue[100],),
+                              Icon(Icons.star,size: 15, color: (widget.dificuldade >= 5) ? Colors.blue: Colors.blue[100],),
                             ],
                           ),
                         ],
@@ -138,7 +139,7 @@ class _TaskState extends State<Task> {
                           width: 200,
                           child: LinearProgressIndicator(
                             color: Colors.white,
-                            value: nivel / 10,
+                            value: (widget.dificuldade > 0) ? (nivel/widget.dificuldade) / 10 : 1,
                           )),
                     ),
                     Padding(
