@@ -11,25 +11,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Tasks App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Tarefas'),
+            leading: Container(),
+            title: const Text('Tarefas'),
           ),
           body: ListView(
             children: [
-              Task(name: 'Aprender Flutter'),
-              Task(name: 'Andar de bike'),
-              Task(name: 'Meditar'),
-              Task(name: 'Aprender Flutter'),
-              Task(name: 'Andar de bike'),
-              Task(name: 'Meditar'),
-              Task(name: 'Aprender Flutter'),
-              Task(name: 'Andar de bike'),
-              Task(name: 'Meditar'),
+              const Task(name: 'Aprender Flutter'),
+              const Task(name: 'Andar de bike'),
+              const Task(name: 'Meditar'),
+              const Task(name: 'Aprender Flutter'),
+              const Task(name: 'Andar de bike'),
+              const Task(name: 'Meditar'),
+              const Task(name: 'Aprender Flutter'),
+              const Task(name: 'Andar de bike'),
+              const Task(name: 'Meditar'),
             ],
           ),
           floatingActionButton: FloatingActionButton(onPressed: (){},),
@@ -74,20 +75,31 @@ class _TaskState extends State<Task> {
                         width: 72,
                         height: 100,
                       ),
-                      Container(
+                      SizedBox(
                           width: 200,
-                          child: Text(widget.name, style: TextStyle(
+                          child: Text(widget.name, style: const TextStyle(
                             fontSize: 24,
                             overflow: TextOverflow.ellipsis,
                           ),)),
-                      ElevatedButton(
-                          onPressed: (){
-                            setState(() {
-                              nivel++;
-                            });
-
-                          print(nivel);
-                      }, child: Icon(Icons.arrow_drop_up))
+                      SizedBox(
+                        height: 52,
+                        width: 52,
+                        child: ElevatedButton(
+                            onPressed: (){
+                              setState(() {
+                                nivel++;
+                              });
+                            print(nivel);
+                        },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                          children: const [
+                            Icon(Icons.arrow_drop_up),
+                            Text('Up', style: TextStyle(fontSize: 12),)
+                          ],
+                        )),
+                      )
                     ],
                   ),
                 ),
