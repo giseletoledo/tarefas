@@ -19,7 +19,7 @@ Para rodar o app, digitar o comando na linha de comando, dentro do diretório ra
 ```
 $ flutter run
 ```
-<p align="center"><img width="30%" src="https://github.com/giseletoledo/tarefas/blob/main/Screenshot_20221205_085037.png"/></p>
+<p align="center"><img width="30%" src="https://github.com/giseletoledo/tarefas/blob/main/Screenshot_20221205_092124.png"/></p>
 
 ## Getting Started
 
