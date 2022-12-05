@@ -1,6 +1,24 @@
-# tarefas
+# App de tarefas
 
-A new Flutter project.
+App que lista e classifica tarefas do curso Alura de Flutter.
+
+Clonando o repositório:
+
+```
+$ git clone https://github.com/gisesma/flutter-app-fisio
+```
+
+Baixar as dependências do projeto:
+
+```
+$ flutter pub get
+```
+
+Para rodar o app, digitar o comando na linha de comando, dentro do diretório raiz do app:
+
+```
+$ flutter run
+```
 
 ## Getting Started
 
