@@ -103,29 +103,40 @@ class _TaskState extends State<Task> {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                        width: 200,
-                        child: LinearProgressIndicator(
-                          color: Colors.white,
-                          value: (widget.dificuldade > 0)
-                              ? (nivel / widget.dificuldade) / 10
-                              : 1,
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      'Nivel: $nivel',
-                      style:
-                      const TextStyle(color: Colors.white, fontSize: 16),
+              Container(
+                color: (nivel <= 5)
+                    ? Colors.yellow
+                    : (nivel <=7)
+                    ? Colors.orange
+                    : Colors.blue,
+                child: Row(
+
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                          ),
+                          width: 200,
+                          child: LinearProgressIndicator(
+                            color: Colors.white,
+                            value: (widget.dificuldade > 0)
+                                ? (nivel / widget.dificuldade) / 10
+                                : 1,
+                          )),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        'Nivel: $nivel',
+                        style:
+                        const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           )
