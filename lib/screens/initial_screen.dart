@@ -28,33 +28,34 @@ class _InitialScreenState extends State<InitialScreen> {
             Task(
               name: 'Aprender Flutter',
               foto:
-              'https://pbs.twimg.com/media/Eu7e3mQVgAImK2o?format=png&name=large',
+              'assets/images/dash.png',
               dificuldade: 3,
             ),
             Task(
               name: 'Andar de bike',
               foto:
-              'https://3.bp.blogspot.com/-GXGnY7nIpM0/Wd0HYrIJuEI/AAAAAAAAA3E/afmo9jI9H3UwAb9CzjkT4Qt4PHPYOJtUwCLcBGAs/s1600/canstockphoto6512833.jpg',
+              'assets/images/bike.jpg',
               dificuldade: 1,
             ),
             Task(
               name: 'Meditar',
               foto:
-              'https://catracalivre.com.br/wp-content/uploads/sites/19/2017/05/Medita%C3%A7%C3%A3o-iStock.jpg',
+              'assets/images/meditar.webp',
               dificuldade: 2,
             ),
             Task(
               name: 'Ler',
               foto:
-              'https://www.plannetaeducacao.com.br/portal/arquivo/thumb/artigos/eff9a21305e73bb387a7_990x600_0_0_1_1.png',
+              'assets/images/book.png',
               dificuldade: 4,
             ),
             Task(
               name: 'Jogar',
               foto:
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Tyae_jwwSB9KLE5AKOX7Kl0A5eLN52-Yuw&usqp=CAU',
+              'assets/images/play.jpg',
               dificuldade: 1,
             ),
+            SizedBox(height: 80,)
           ],
         ),
       ),
