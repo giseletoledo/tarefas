@@ -22,7 +22,7 @@ class _InitialScreenState extends State<InitialScreen> {
       ),
       body: AnimatedOpacity(
         opacity: opacidade ? 1 : 0,
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         child: ListView(
           children: const [
             Task(
@@ -64,7 +64,7 @@ class _InitialScreenState extends State<InitialScreen> {
             opacidade = !opacidade;
           });
         },
-        child: Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.remove_red_eye),
       ),
     );
   }

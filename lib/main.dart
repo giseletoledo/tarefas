@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tarefas/screens/initial_screen.dart';
 
-import 'components/difficulty.dart';
-import 'components/task.dart';
-
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: InitialScreen(),
+        home: const InitialScreen(),
     );
   }
 }
