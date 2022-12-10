@@ -122,7 +122,14 @@ class _FormScreenState extends State<FormScreen> {
                     if(_formKey.currentState!.validate()){
                       if (kDebugMode) {
                         print(nameController.text);
+                        print(difficultyController.text);
+                        print(imageController.text);
                       }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Salvando nova tarefa'),
+                        ),
+                      );
                     }
                   }, child: const Text('Adicionar'),)
                 ],
