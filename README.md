@@ -5,7 +5,7 @@ App que lista e classifica tarefas do curso Alura de Flutter.
 Clonando o repositório:
 
 ```
-$ git clone https://github.com/gisesma/flutter-app-fisio
+$ git clone https://github.com/giseletoledo/tarefas.git
 ```
 
 Baixar as dependências do projeto:
