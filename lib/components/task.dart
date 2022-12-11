@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'difficulty.dart';
@@ -10,9 +9,9 @@ class Task extends StatefulWidget {
 
   const Task(
       {Key? key,
-        required this.name,
-        required this.foto,
-        required this.dificuldade})
+      required this.name,
+      required this.foto,
+      required this.dificuldade})
       : super(key: key);
 
   @override
@@ -21,6 +20,13 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   int nivel = 0;
+
+  bool assetOrNetwork() {
+    if (widget.foto.contains('http')) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +62,15 @@ class _TaskState extends State<Task> {
                       height: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4.0),
-                        child: Image.asset(
-                          widget.foto,
-                          fit: BoxFit.cover,
-                        ),
+                        child: assetOrNetwork()
+                            ? Image.asset(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.network(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              ),
                       ),
                     ),
                     Column(
@@ -75,7 +86,9 @@ class _TaskState extends State<Task> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             )),
-                        Difficulty(difficultyLevel: widget.dificuldade,),
+                        Difficulty(
+                          difficultyLevel: widget.dificuldade,
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -106,11 +119,10 @@ class _TaskState extends State<Task> {
               Container(
                 color: (nivel <= 5)
                     ? Colors.yellow
-                    : (nivel <=7)
-                    ? Colors.orange
-                    : Colors.blue,
+                    : (nivel <= 7)
+                        ? Colors.orange
+                        : Colors.blue,
                 child: Row(
-
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
@@ -132,7 +144,7 @@ class _TaskState extends State<Task> {
                       child: Text(
                         'Nivel: $nivel',
                         style:
-                        const TextStyle(color: Colors.white, fontSize: 16),
+                            const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
                   ],
