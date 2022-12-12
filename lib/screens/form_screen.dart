@@ -6,6 +6,8 @@ class FormScreen extends StatefulWidget {
 
   final BuildContext taskContext;
 
+
+
   @override
   State<FormScreen> createState() => _FormScreenState();
 }
@@ -15,6 +17,13 @@ class _FormScreenState extends State<FormScreen> {
   TextEditingController difficultyController = TextEditingController();
   TextEditingController imageController = TextEditingController();
 
+  RegExp _numeric = RegExp(r'^-?[0-9]+$');
+
+  bool isNumeric(String str) {
+    print(_numeric.hasMatch(str));
+    return _numeric.hasMatch(str);
+  }
+
   bool valueValidator(String? value){
     if (value != null && value.isEmpty) {
       return true;
@@ -23,9 +32,10 @@ class _FormScreenState extends State<FormScreen> {
   }
   
   bool difficultyValidator(String? value) {
-    if (value!.isEmpty ||
+    print(isNumeric(value!));
+    if (!isNumeric(value) || value!.isEmpty ||
         int.parse(value) > 5 ||
-        int.parse(value) < 1 || int.tryParse(value) != null ) {
+        int.parse(value) < 1 ) {
       return true;
     }
       return false;
